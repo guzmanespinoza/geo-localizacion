@@ -26,13 +26,13 @@ export class MyMapComponent implements OnInit {
 
     tileLayer(
       'https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png',
-      { maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }
+      { maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors use by Caluco App' }
     ).addTo(this.map);
 
 
 
 
-    marker(
+   let antony= marker(
       [13.726234625064649, -89.66104084765344],
       {
         icon: icon({
@@ -93,7 +93,7 @@ export class MyMapComponent implements OnInit {
       }
     ).addTo(this.map);
 
- 
+
     circle([13.725259894936478, -89.66149177779121], {
       color: 'red',
       fillColor: '#f03',
@@ -105,8 +105,10 @@ export class MyMapComponent implements OnInit {
 
     setTimeout(() => {
       this.getGeolocalization();
+      antony.remove();
+    // marker([13.726234625064649, -89.66104084765344]).remove();
     }, 5000);
-  
+
 
 
   }
@@ -120,6 +122,7 @@ export class MyMapComponent implements OnInit {
         this.useLocation = [coords.latitude, coords.longitude];
         console.log('useLocation', this.useLocation);
         marker(this.useLocation).addTo(this.map);
+        
 
       }
     );
