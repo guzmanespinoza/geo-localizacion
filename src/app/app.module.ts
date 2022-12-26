@@ -7,6 +7,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MyMapComponent } from './pages/my-map/my-map.component';
+import { PlacesService } from './services/places.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { MyMapComponent } from './pages/my-map/my-map.component';
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [],
+  providers: [
+    PlacesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
